@@ -268,7 +268,7 @@ module HtmlGrid
       raw_span = components.keys.collect { |key|
         key.at(0)
       }.max.to_i
-      raw_span > 0 ? raw_span + 1 : nil
+      (raw_span > 0) ? raw_span + 1 : nil
     end
 
     def insert_row(ypos, txt, css_class = nil)

@@ -11,7 +11,7 @@ module HtmlGrid
       xpos = 0
       div = nil
       components.sort_by { |matrix, component|
-        [matrix.at(1), matrix.at(0), matrix[2..-1]]
+        [matrix.at(1), matrix.at(0), matrix[2..]]
       }.each { |matrix, component|
         if (mpos = matrix.at(1).to_i) > ypos
           xpos = 0
@@ -39,7 +39,7 @@ module HtmlGrid
       @grid&.each_with_index { |div, idx|
         res += context.div(tag_attributes(idx)) {
           div.flatten.inject("") { |html, item|
-            html += if item.respond_to?(:to_html)
+            html + if item.respond_to?(:to_html)
               item.to_html(context).force_encoding("utf-8")
             else
               item.to_s

@@ -96,10 +96,10 @@ module HtmlGrid
         def component_html(cgi)
           html = ""
           @components.each { |component|
-            if component.respond_to? :to_html
-              html += component.to_html(cgi).to_s.dup.force_encoding("utf-8")
+            html += if component.respond_to? :to_html
+              component.to_html(cgi).to_s.dup.force_encoding("utf-8")
             else
-              html += component.to_s
+              component.to_s
             end
           }
           html = "&nbsp;" if html.empty?
@@ -196,7 +196,7 @@ module HtmlGrid
 
     def initialize_grid(w, h)
       if w > @width || h > @height
-        floor = w > @width ? 0 : @height
+        floor = (w > @width) ? 0 : @height
         @width = [w, @width].max
         @height = [h, @height].max
         floor.upto(@height - 1) { |ii|

@@ -31,9 +31,9 @@ module HtmlGrid
     LABEL = true
     def init
       bool = if @model.respond_to?(@name) && @model.send(@name)
-        :true
+        true
       else
-        :false
+        false
       end
       @value = @lookandfeel.lookup(bool)
     end
