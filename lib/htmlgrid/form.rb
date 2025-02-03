@@ -63,7 +63,7 @@ module HtmlGrid
     private
 
     def hidden_fields(context)
-        context.hidden("flavor", @lookandfeel.flavor) +
+      context.hidden("flavor", @lookandfeel.flavor) +
         context.hidden("language", @lookandfeel.language) +
         context.hidden({"NAME" => "event", "ID" => "event",
                         "VALUE" => event.to_s}) +
@@ -84,7 +84,7 @@ module HtmlGrid
       super
       @form_properties.update({
         "METHOD"	=>	self.class::FORM_METHOD.dup,
-        "ACTION"	=>	(self.class::FORM_ACTION || @lookandfeel.base_url),
+        "ACTION"	=>	self.class::FORM_ACTION || @lookandfeel.base_url,
         "ACCEPT-CHARSET"	=>	self.class::ACCEPT_CHARSET
       })
     end

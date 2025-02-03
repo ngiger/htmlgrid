@@ -282,7 +282,7 @@ module CompositeTest
         StubCompositeModel.new, StubCompositeSession.new
       )
       assert_equal(<<-EXP.gsub(/\n|^\s*/, ""), table.to_html(CGI.new))
-  <TABLE cellspacing=\"0\"><TR><TD class=\"dradnats\"><A class=\"standard\">brafoo</A></TD></TR></TABLE>
+  <TABLE cellspacing="0"><TR><TD class="dradnats"><A class="standard">brafoo</A></TD></TR></TABLE>
       EXP
     end
 
