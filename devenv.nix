@@ -5,7 +5,13 @@
   env.GREET = "devenv";
 
   # https://devenv.sh/packages/
-  packages = [ pkgs.git pkgs.libyaml ];
+  packages = [
+    pkgs.git
+    pkgs.libyaml
+    pkgs.shared-mime-info
+    pkgs.nixfmt-rfc-style
+  ];
+  env.FREEDESKTOP_MIME_TYPES_PATH = "${pkgs.shared-mime-info}/share/mime/packages/freedesktop.org.xml";
 
   enterShell = ''
     echo This is the devenv shell for htmlgrid

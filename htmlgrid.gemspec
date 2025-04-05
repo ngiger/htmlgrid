@@ -20,6 +20,7 @@ Gem::Specification.new do |s|
     s.add_development_dependency "rack", ">= 2.1.4"
   end
   s.add_development_dependency "psych", "< 4.0.0"
+  s.add_development_dependency "debug" if RUBY_VERSION.to_f >= 3.2
   s.add_development_dependency "bundler"
   s.add_development_dependency "rake"
   s.add_development_dependency "rspec"
